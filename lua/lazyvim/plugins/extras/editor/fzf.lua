@@ -196,13 +196,14 @@ return {
         opts[1] = nil
       end
       require("fzf-lua").setup(opts)
+      require("fzf-lua").register_ui_select(opts.ui_select, true)
     end,
     init = function()
       LazyVim.on_very_lazy(function()
         vim.ui.select = function(...)
           require("lazy").load({ plugins = { "fzf-lua" } })
           local opts = LazyVim.opts("fzf-lua") or {}
-          require("fzf-lua").register_ui_select(opts.ui_select or nil)
+          require("fzf-lua").register_ui_select(opts.ui_select or nil, true)
           return vim.ui.select(...)
         end
       end)
