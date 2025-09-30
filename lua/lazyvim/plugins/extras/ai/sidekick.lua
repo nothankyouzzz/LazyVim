@@ -78,8 +78,8 @@ return {
     -- stylua: ignore
     keys = {
       -- nes is also useful in normal mode
-      { "<tab>", LazyVim.cmp.map({ "ai_nes" }, "<tab>"), mode = { "n" }, expr = true },
-      { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+      { "<tab>", LazyVim.cmp.map({ "ai_nes" }, "<tab>"), mode = { "n", "v" }, expr = true },
+      { "<leader>as", "", desc = "+Sidekick", mode = { "n", "v" } },
       {
         "<c-.>",
         function() require("sidekick.cli").focus() end,
@@ -87,44 +87,42 @@ return {
         mode = { "n", "t", "i", "x" },
       },
       {
-        "<leader>aa",
+        "<leader>asa",
         function() require("sidekick.cli").toggle() end,
-        desc = "Sidekick Toggle CLI",
+        desc = "Toggle CLI",
       },
       {
-        "<leader>as",
+        "<leader>ass",
         function() require("sidekick.cli").select() end,
-        -- Or to select only installed tools:
-        -- require("sidekick.cli").select({ filter = { installed = true } })
         desc = "Select CLI",
       },
       {
-        "<leader>ad",
+        "<leader>asd",
         function() require("sidekick.cli").close() end,
         desc = "Detach a CLI Session",
       },
       {
-        "<leader>at",
+        "<leader>ast",
         function() require("sidekick.cli").send({ msg = "{this}" }) end,
         mode = { "x", "n" },
         desc = "Send This",
       },
       {
-        "<leader>af",
+        "<leader>asf",
         function() require("sidekick.cli").send({ msg = "{file}" }) end,
         desc = "Send File",
       },
       {
-        "<leader>av",
+        "<leader>asv",
         function() require("sidekick.cli").send({ msg = "{selection}" }) end,
         mode = { "x" },
         desc = "Send Visual Selection",
       },
       {
-        "<leader>ap",
+        "<leader>asp",
         function() require("sidekick.cli").prompt() end,
         mode = { "n", "x" },
-        desc = "Sidekick Select Prompt",
+        desc = "Select Prompt",
       },
     },
   },
