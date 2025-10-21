@@ -5,7 +5,6 @@ return {
     "yetone/avante.nvim",
     build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
       or "make",
-    event = "VeryLazy",
     opts = {
       provider = "copilot",
       selection = {
@@ -31,17 +30,19 @@ return {
       "AvanteToggle",
     },
     keys = {
-      { "<leader>aa", "<cmd>AvanteAsk<CR>", desc = "Ask Avante" },
-      { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "Chat with Avante" },
-      { "<leader>ae", "<cmd>AvanteEdit<CR>", desc = "Edit Avante" },
-      { "<leader>af", "<cmd>AvanteFocus<CR>", desc = "Focus Avante" },
-      { "<leader>ah", "<cmd>AvanteHistory<CR>", desc = "Avante History" },
-      { "<leader>am", "<cmd>AvanteModels<CR>", desc = "Select Avante Model" },
-      { "<leader>an", "<cmd>AvanteChatNew<CR>", desc = "New Avante Chat" },
-      { "<leader>ap", "<cmd>AvanteSwitchProvider<CR>", desc = "Switch Avante Provider" },
-      { "<leader>ar", "<cmd>AvanteRefresh<CR>", desc = "Refresh Avante" },
-      { "<leader>as", "<cmd>AvanteStop<CR>", desc = "Stop Avante" },
-      { "<leader>at", "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
+      { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+      { "<leader>aa", "", desc = "+Avante", mode = { "n", "v" } },
+      { "<leader>aaa", "<cmd>AvanteAsk<CR>", desc = "Ask Avante" },
+      { "<leader>aac", "<cmd>AvanteChat<CR>", desc = "Chat with Avante" },
+      { "<leader>aae", "<cmd>AvanteEdit<CR>", desc = "Edit Avante" },
+      { "<leader>aaf", "<cmd>AvanteFocus<CR>", desc = "Focus Avante" },
+      { "<leader>aah", "<cmd>AvanteHistory<CR>", desc = "Avante History" },
+      { "<leader>aam", "<cmd>AvanteModels<CR>", desc = "Select Avante Model" },
+      { "<leader>aan", "<cmd>AvanteChatNew<CR>", desc = "New Avante Chat" },
+      { "<leader>aap", ":AvanteSwitchProvider ", desc = "Switch Avante Provider" },
+      { "<leader>aar", "<cmd>AvanteRefresh<CR>", desc = "Refresh Avante" },
+      { "<leader>aas", "<cmd>AvanteStop<CR>", desc = "Stop Avante" },
+      { "<c-a>", "<cmd>AvanteToggle<CR>", desc = "Toggle Avante", mode = { "n", "i" } },
     },
   },
 
@@ -78,7 +79,9 @@ return {
   {
     "saghen/blink.cmp",
     optional = true,
-    specs = { "Kaiser-Yang/blink-cmp-avante" },
+    specs = {
+      { "Kaiser-Yang/blink-cmp-avante", lazy = true },
+    },
     opts = {
       sources = {
         default = { "avante" },
