@@ -103,6 +103,7 @@ return {
         },
       },
     },
+    opts_extend = { "open_files_do_not_replace_types" },
     config = function(_, opts)
       local function on_move(data)
         Snacks.rename.on_rename_file(data.source, data.destination)
