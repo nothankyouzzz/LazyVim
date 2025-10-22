@@ -70,9 +70,9 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     optional = true,
     opts = {
-      file_types = { "markdown", "Avante" },
+      file_types = { "Avante" },
     },
-    ft = { "markdown", "Avante" },
+    ft = "Avante",
   },
 
   -- blink.cmp source for avante.nvim

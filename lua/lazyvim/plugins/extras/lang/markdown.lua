@@ -95,6 +95,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
+      file_types = { "markdown" },
       code = {
         sign = false,
         width = "block",
@@ -108,7 +109,8 @@ return {
         enabled = false,
       },
     },
-    ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
+    opts_extend = { "file_types" },
+    ft = { "markdown", "norg", "rmd", "org" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
       Snacks.toggle({
